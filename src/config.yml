@@ -1,0 +1,11 @@
+MaxInactivitySeconds: 30
+IgnorePermission: "awayfromminecraft.ignore"
+OnAFK:
+  Broadcast: true
+  ChatMessage: "&6%player% has been marked as AFK"
+WhileAFK:
+  NotifyPlayer: true
+  ActionbarMessage: "&6You have been marked as AFK"
+OnReturn:
+  Broadcast: true
+  ChatMessage: "&a%player% is no longer AFK"
