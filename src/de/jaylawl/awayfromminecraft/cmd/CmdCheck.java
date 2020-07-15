@@ -43,7 +43,7 @@ public class CmdCheck implements CommandExecutor, TabCompleter {
                 AFKManager afkManager = AwayFromMinecraft.getAFKManager();
                 if (afkManager.isAFK(player)) {
                     int seconds = afkManager.getAFKSeconds(player);
-                    int minutes = afkManager.getAFKMinutes(player);
+                    int minutes = seconds / 60;
                     seconds %= 60;
                     commandSender.sendMessage(player.getName() + " is AFK since " + minutes + " minute(s) and " + seconds + " second(s)");
                 } else {

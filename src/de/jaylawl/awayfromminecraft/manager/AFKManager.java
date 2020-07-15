@@ -108,8 +108,4 @@ public class AFKManager {
         return (int) (value / 1000);
     }
 
-    public int getAFKMinutes(@NotNull OfflinePlayer player) {
-        return getAFKSeconds(player) / 60;
-    }
-
 }
