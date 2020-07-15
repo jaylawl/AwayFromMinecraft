@@ -15,3 +15,7 @@ commands:
     aliases: [afklist]
     permission: "awayfromminecraft.check"
     permission-message: "§cInsufficient permission"
+  kickafk:
+    aliases: [afkkick]
+    permission: "minecraft.command.kick"
+    permission-message: "§cInsufficient permission"

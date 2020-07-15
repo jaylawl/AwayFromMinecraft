@@ -1,6 +1,7 @@
 package de.jaylawl.awayfromminecraft;
 
 import de.jaylawl.awayfromminecraft.cmd.CmdCheck;
+import de.jaylawl.awayfromminecraft.cmd.CmdKick;
 import de.jaylawl.awayfromminecraft.cmd.CmdList;
 import de.jaylawl.awayfromminecraft.cmd.CmdMaster;
 import de.jaylawl.awayfromminecraft.event.bukkit.PlayerEventListener;
@@ -53,6 +54,15 @@ public class AwayFromMinecraft extends JavaPlugin {
             listAFK.setTabCompleter(cmdList);
         } else {
             getLogger().severe(ChatColor.RED + "Failed to register plugin's \"/listafk\" command");
+        }
+
+        PluginCommand kickAFK = getCommand("kickafk");
+        if (kickAFK != null) {
+            CmdKick cmdKick = new CmdKick();
+            kickAFK.setExecutor(cmdKick);
+            kickAFK.setTabCompleter(cmdKick);
+        } else {
+            getLogger().severe(ChatColor.RED + "Failed to register plugin's \"/kickafk\" command");
         }
 
         pluginManager.registerEvents(new PlayerEventListener(), this);

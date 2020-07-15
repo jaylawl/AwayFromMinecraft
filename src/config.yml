@@ -1,3 +1,14 @@
+# AwayFromMinecraft
+# created by jaylawl
+
+# Command permissions (hardcoded):
+#
+# /awayfromminecraft              -> "awayfromminecraft.admin"
+# /isafk                          -> "awayfromminecraft.check"
+# /listafk                        -> "awayfromminecraft.check"
+# /kickafk                        -> "minecraft.command.kick"
+#
+
 MaxInactivitySeconds: 60
 IgnorePermission: "awayfromminecraft.ignore"
 OnAFK:

@@ -21,8 +21,8 @@ public class CmdCheck implements CommandExecutor, TabCompleter {
     @Override
     public @Nullable List<String> onTabComplete(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] arguments) {
         int argNumber = TabHelper.getArgNumber(arguments);
-        List<String> completions = new ArrayList<>();
         if (argNumber == 1) {
+            List<String> completions = new ArrayList<>();
             for (Player player : Bukkit.getOnlinePlayers()) {
                 completions.add(player.getName());
             }
