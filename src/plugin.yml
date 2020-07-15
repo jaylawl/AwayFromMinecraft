@@ -1,6 +1,6 @@
 main: de.jaylawl.awayfromminecraft.AwayFromMinecraft
 name: AwayFromMinecraft
-version: 0.dev1
+version: 0.dev2
 author: jaylawl
 website: https://github.com/jaylawl
 commands:
@@ -9,9 +9,9 @@ commands:
     permission: "awayfromminecraft.admin"
     permission-message: "§cInsufficient permission"
   isafk:
-    permission: "awayfromminecraft.admin"
+    permission: "awayfromminecraft.check"
     permission-message: "§cInsufficient permission"
   listafk:
     aliases: [afklist]
-    permission: "awayfromminecraft.admin"
+    permission: "awayfromminecraft.check"
     permission-message: "§cInsufficient permission"
