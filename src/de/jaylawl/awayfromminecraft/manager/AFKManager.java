@@ -21,26 +21,32 @@ public class AFKManager {
     private static final ConcurrentHashMap<OfflinePlayer, Long> LAST_ACTION_TIMESTAMP = new ConcurrentHashMap<>();
     private static final Set<OfflinePlayer> AFK_PLAYERS = new HashSet<>();
 
-    private int notificationCooldown = 19;
+    private byte evaluationCooldown = 9;
+    private byte notificationCooldown = 19;
 
     //
 
     public void evaluate() {
-        List<Player> onlinePlayers = new ArrayList<>(Bukkit.getOnlinePlayers());
-        Collection<Player> filter = new ArrayList<>();
-        for (Player player : onlinePlayers) {
-            if (AFK_PLAYERS.contains(player) || player.hasPermission(IGNORE_PERMISSION)) {
-                filter.add(player);
+        if (this.evaluationCooldown > 0) {
+            this.evaluationCooldown--;
+        } else {
+            this.evaluationCooldown = 9;
+            List<Player> onlinePlayers = new ArrayList<>(Bukkit.getOnlinePlayers());
+            Collection<Player> filter = new ArrayList<>();
+            for (Player player : onlinePlayers) {
+                if (AFK_PLAYERS.contains(player) || player.hasPermission(IGNORE_PERMISSION)) {
+                    filter.add(player);
+                }
             }
-        }
-        if (!filter.isEmpty()) {
-            onlinePlayers.removeAll(filter);
-        }
-        if (onlinePlayers.size() > 0) {
-            Player player = onlinePlayers.get(RANDOM.nextInt(onlinePlayers.size()));
-            if (LAST_ACTION_TIMESTAMP.containsKey(player)) {
-                if ((System.currentTimeMillis() - LAST_ACTION_TIMESTAMP.get(player)) / 1000 > MAX_INACTIVITY_SECONDS) {
-                    setAFK(player);
+            if (!filter.isEmpty()) {
+                onlinePlayers.removeAll(filter);
+            }
+            if (onlinePlayers.size() > 0) {
+                Player player = onlinePlayers.get(RANDOM.nextInt(onlinePlayers.size()));
+                if (LAST_ACTION_TIMESTAMP.containsKey(player)) {
+                    if ((System.currentTimeMillis() - LAST_ACTION_TIMESTAMP.get(player)) / 1000 > MAX_INACTIVITY_SECONDS) {
+                        setAFK(player);
+                    }
                 }
             }
         }
