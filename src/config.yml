@@ -1,4 +1,4 @@
-MaxInactivitySeconds: 30
+MaxInactivitySeconds: 60
 IgnorePermission: "awayfromminecraft.ignore"
 OnAFK:
   Broadcast: true
