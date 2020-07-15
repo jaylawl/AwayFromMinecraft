@@ -1,6 +1,6 @@
 main: de.jaylawl.awayfromminecraft.AwayFromMinecraft
 name: AwayFromMinecraft
-version: 0.dev2
+version: 0.dev3
 author: jaylawl
 website: https://github.com/jaylawl
 commands:
