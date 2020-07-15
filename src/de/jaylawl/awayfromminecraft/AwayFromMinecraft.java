@@ -34,9 +34,7 @@ public class AwayFromMinecraft extends JavaPlugin {
             masterCommand.setExecutor(cmdMaster);
             masterCommand.setTabCompleter(cmdMaster);
         } else {
-            getLogger().severe(ChatColor.RED + "Failed to register plugin's master command; disabling plugin...");
-            pluginManager.disablePlugin(this);
-            return;
+            getLogger().severe(ChatColor.RED + "Failed to register plugin's master command");
         }
 
         PluginCommand isAFKCommand = getCommand("isafk");
@@ -46,8 +44,6 @@ public class AwayFromMinecraft extends JavaPlugin {
             isAFKCommand.setTabCompleter(cmdCheck);
         } else {
             getLogger().severe(ChatColor.RED + "Failed to register plugin's \"/isafk\" command");
-            pluginManager.disablePlugin(this);
-            return;
         }
 
         PluginCommand listAFK = getCommand("listafk");
